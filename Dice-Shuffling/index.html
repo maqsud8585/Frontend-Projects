@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice-Shuffler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ea8500;
+            font-size: 3em;
+        }
+        .first-p{
+            font-size: 1.2em;
+            color: rgb(12, 12, 97);
+            margin-top: 40px;
+        }
+        img {
+            width: 300px;
+            height: 300px;
+            margin-top: 70px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 25px;
+            font-size: 2em;
+            color: #fff;
+            background-color: #ea8500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d77a00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Dice-Shuffler</h1>
+    <p class="first-p">This is a simple dice shuffling application.</p>
+    <div>
+        <img src="./images/dice1.png" alt="">
+    </div>
+    <p style="margin-top:70px;">Click the button below to shuffle the dice.</p>
+    <button onclick="shuffleDice()">Shuffle Dice</button>
+    <script>
+
+    function shuffleDice() {
+        const img = document.querySelector('img');
+        img.src = './images/diceShuffling.png';
+
+        setTimeout(() => {
+            const diceImages = [
+                './images/dice 1.png',
+                './images/dice 2.png',
+                './images/dice 3.png',
+                './images/dice 4.png',
+                './images/dice 5.png',
+                './images/dice 6.png'
+            ];
+            const randomIndex = Math.floor(Math.random() * diceImages.length);
+            img.src = diceImages[randomIndex];
+        }, 700);
+    }
+</script>
+    <p style="margin-top: 100px;">Enjoy your game! <br> <br>Created by Maqsud </p>
+    
+</body>
+</html>
