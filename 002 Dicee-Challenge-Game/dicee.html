@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Dicee</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet" />
+</head>
+
+<body>
+  <h1>Refresh Me</h1>
+  <div class="myContainer">
+    <div class="dice">
+      <p>Player 1</p>
+      <img class="img1" src="./images/dice1.png" />
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img class="img2" src="./images/dice2.png" />
+    </div>
+  </div>
+  <button id="mybutton">Start</button>
+  <p id="notify"> Click to Start.</p>
+  <footer>🎲Created By Maqsud 🎲</footer>
+
+
+
+  <script>
+
+    const button = document.getElementById("mybutton");
+    button.addEventListener("click", myFunction);
+
+    function myFunction() {
+      var player1 = Math.floor(Math.random() * 6) + 1;
+      var player2 = Math.floor(Math.random() * 6) + 1;
+      if (player1 === 1) {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice1.png");
+      }
+      else if (player1 === 2) {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice2.png");
+      }
+      else if (player1 === 3) {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice3.png");
+      }
+      else if (player1 === 4) {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice4.png");
+      }
+      else if (player1 === 5) {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice5.png");
+      }
+      else {
+        document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice6.png");
+      }
+      if (player2 === 1) {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice1.png");
+      }
+      else if (player2 === 2) {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice2.png");
+      }
+      else if (player2 === 3) {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice3.png");
+      }
+      else if (player2 === 4) {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice4.png");
+      }
+      else if (player2 === 5) {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice5.png");
+      }
+      else {
+        document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice6.png");
+      }
+      {
+        if (player1 > player2) {
+          document.getElementsByTagName("h1")[0].innerHTML = "player 1 wins";
+        }
+        else if (player1 === player2) {
+          document.getElementsByTagName("h1")[0].innerHTML = "Draw";
+        }
+        else {
+          document.getElementsByTagName("h1")[0].innerHTML = "player 2 wins";
+        }
+      }
+      document.getElementById("mybutton").innerHTML = "Refresh";
+      document.getElementById("notify").innerHTML = "Clicked..";
+      console.log(player1, player2);
+    }
+  </script>
+</body>
+
+</html>

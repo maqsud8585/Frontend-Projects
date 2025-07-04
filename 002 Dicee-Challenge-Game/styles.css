@@ -1,0 +1,68 @@
+.myContainer {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice {
+  display: inline-block;
+  margin: 20px;
+}
+
+body {
+  background-color: #393E46;
+}
+
+h1 {
+  margin: 30px;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 8rem;
+  color: #4ECCA3;
+  text-align: center;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+}
+
+img {
+  width: 80%;
+}
+
+footer {
+  margin-top: 5%;
+  color: #EEEEEE;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+
+}
+
+button {
+  margin: 30px auto;
+  display: block;
+  padding: 14px 28px;
+  background-color: #c6ebde;
+  color: rgb(19, 18, 18);
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+button:hover {
+  background-color: #2b2c2b;
+  color: #fafafa;
+  transition: 0.3s ease-in-out;
+}
+
+#notify {
+  text-align: center;
+  font-size: 1rem;
+}
