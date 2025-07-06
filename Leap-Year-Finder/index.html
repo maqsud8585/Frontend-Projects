@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+        body {
+            background-image: url("./futuristic-time-machine.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            height: auto;
+            width: 100vw;
+            overflow-x: hidden;
+            font-family: 'Red Hat Text', sans-serif;
+        }
+
+        .Box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 200px;
+        }
+
+        form {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2em;
+            text-align: left;
+            margin-left: 10px;
+
+        }
+
+        input[type="text"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[value=""] {
+            color: white;
+        }
+
+        button {
+            margin-top: 8px;
+            margin-left: 150px;
+            padding: 12px 22px;
+            border: 0;
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            color: #a67c00;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #0000;
+        }
+
+        h1 {
+            margin-top: 30px;
+            color: #fafafa;
+            text-align: center;
+            font-weight: 700;
+            filter: drop-shadow(2.5px 2.5px 5px #bab9ab);
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            color: #fafafa;
+            margin-top: 250px;
+        }
+    </style>
+</head>
+
+<body onload="welcomeGreeting()">
+    <div class="Box">
+        <h1> &#128522; <em>You Can Find a Leap Year!</em></h1>
+        <form action="">
+            <label for="inputYear"> Enter an Year</label>
+            <input type="text" id="inputYear" value="" placeholder=" " required>
+            <button>Check</button>
+            <p id="result" style="text-align: center;"> </p>
+        </form>
+    </div>
+    <footer>
+        <p>Created with ❤️ by Maqsud.</p>
+    </footer>
+
+</body>
+<script>
+
+   let welcomePlayed = false;
+
+    function welcomeGreeting() {
+        if (welcomePlayed) return;
+
+        const $welcome = new Audio("./audio/welcomeVoice.mp3");
+
+        $welcome.play().then(() => {
+            welcomePlayed = true;
+            console.log("Welcome audio played successfully.");
+        }).catch(err => {
+            console.log("Autoplay blocked. Will try again on user interaction.");
+        });
+    }
+
+    // Run once after any user interaction (click anywhere on page)
+    document.addEventListener("click", () => {
+        welcomeGreeting(); // trigger on first click
+    }, { once: true }); // ensures it only runs once
+
+    // Also support key press just in case
+    document.addEventListener("keydown", () => {
+        welcomeGreeting();
+    }, { once: true });
+
+
+    var button = document.getElementsByTagName("button")[0];
+    button.addEventListener("click", myFunction);
+
+    function myFunction(event) {
+        event.preventDefault(); // Prevent form submission
+        var inputValue = document.getElementById("inputYear").value;
+        document.getElementById("inputYear").style.color = "white";
+        console.log(inputValue);
+        if (inputValue === "") {
+            alert("⚠️ Please enter a year.");
+            return;
+        }
+
+        inputValue = parseInt(inputValue); // Convert input to an integer
+
+        if (isNaN(inputValue)) {
+            alert("❌ Invalid input. Please enter a valid number.");
+            return;
+        }
+
+
+        if (inputValue < 1) {
+            alert("🚫 Year must be greater than 0.");
+            return;
+        }
+        if ((inputValue % 4 === 0 && inputValue % 100 !== 0) || (inputValue % 400 === 0)) {
+            document.getElementById("result").innerHTML = `<p style="color: green; display:inline;">Yes! ${inputValue} </p>` + `<p style="color: green; display:inline;"> is a Leap year!</p>`;
+
+            let $pass = new Audio("./audio/beepPass.mp3");
+            $pass.play();
+        }
+        else {
+            document.getElementById("result").innerHTML = `<p style="color: red; display:inline;">No! ${inputValue} </p>` + `<p style="color: red; display:inline;"> is not a Leap year!</p>`;
+
+            let $Error = new Audio("./audio/beepError.mp3");
+            $Error.play();
+        }
+    }
+
+</script>
+
+</html>
