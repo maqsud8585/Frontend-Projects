@@ -262,22 +262,69 @@ function beerSong() {
 
 // (Fibonacci Generator) This program generates the first 20 numbers in the Fibonacci sequence and stores them in an array, then logs the array to the console.
 
- /* function fibonacciGenerator() {
-  let input = prompt("Enter the number of Fibonacci numbers you want!")
-  let a = 0;
-  let b = 1;
-  var arr = [0, 1];
-    for (let i=0; i<=input; i++) {
-         let c = (a+b);
-        //  let d = (b+c);
-          arr.push(c);
-          a = b;
-          b = c;
-    }
-    console.log(arr);
-  }*/
+/* function fibonacciGenerator() {
+ let input = prompt("Enter the number of Fibonacci numbers you want!")
+ let a = 0;
+ let b = 1;
+ var arr = [0, 1];
+   for (let i=0; i<=input; i++) {
+        let c = (a+b);
+       //  let d = (b+c);
+         arr.push(c);
+         a = b;
+         b = c;
+   }
+   console.log(arr);
+ }*/
 
-    
+// (Object Literals) This program creates an object representing a bellboy with properties such as name, age, work permit status, and languages spoken.
+
+/*var bellBoy = {
+   name: "Timmy",
+   age: 25,
+   hasWorkPermit: true,
+   languages: ["English", "Spanish", "French"],
+ }
+ console.log(bellBoy); */
+
+// (Constructor Function) This program defines a constructor function for creating BellBoy objects with properties such as name, age, work permit status, and languages spoken.
+
+/*function BellBoy(name, age, hasWorkPermit, languages) {
+  this.name = name;
+  this.age = age;
+  this.hasWorkPermit = hasWorkPermit;
+  this.languages = languages;
+  this.clean = function(){
+    console.log(this.name + " is cleaning the room.");
+  }
+}
+
+
+let bellboy1 = new BellBoy("Tom", 28, false, "English");
+// var bellboy2 = new BellBoy("Jerry", 30, true, ["Spanish", "French"]);
+bellboy1.clean(); // Calls the clean method of bellboy1*/
+
+// (callback function) 
+
+/* function photoDevelopKar(name, callback) {
+  console.log("Photo developing for " + name);
+  callback(); // callback function ko call kiya
+}
+
+function callCustomer() {
+  console.log("Sir, aapka photo ready hai. 🙋");
+}
+
+function callCustomer2() {
+  console.log("Sir, aapka photo abhi ready nahi hai. 🙋");
+}
+
+photoDevelopKar("Maqsud", callCustomer2); */
+
+
+
+
+
 
 
 

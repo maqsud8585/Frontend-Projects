@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Box Click Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      text-align: center;
+      background-color: #eef2f3;
+    }
+    #gameBox {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+      text-align: center;
+    }
+    #score {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Box Click Game</h1>
+  <p>Click the red box as many times as you can!</p>
+  <div id="score">Score: 0</div>
+  <div id="gameBox"><p>Catch Me</p></div>
+
+  <script>
+    const box = document.getElementById("gameBox");
+    const scoreDisplay = document.getElementById("score");
+    let score = 0;
+    const maxWidth = window.innerWidth - 100;
+    const maxHeight = window.innerHeight - 100;
+
+    function moveBox() {
+      const randomX = Math.floor(Math.random() * maxWidth);
+      const randomY = Math.floor(Math.random() * maxHeight);
+      box.style.left = randomX + "px";
+      box.style.top = randomY + "px";
+    }
+
+    box.addEventListener("click", function () {
+      score++;
+      scoreDisplay.textContent = "Score: " + score;
+      moveBox();
+    });
+
+    // Move box initially
+    moveBox();
+  </script>
+</body>
+</html>

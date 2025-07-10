@@ -173,6 +173,7 @@
             alert("🚫 Year must be greater than 0.");
             return;
         }
+        console.log(inputValue);
         if ((inputValue % 4 === 0 && inputValue % 100 !== 0) || (inputValue % 400 === 0)) {
             document.getElementById("result").innerHTML = `<p style="color: green; display:inline;">Yes! ${inputValue} </p>` + `<p style="color: green; display:inline;"> is a Leap year!</p>`;
 

@@ -9,7 +9,44 @@
 </head>
 
 <body>
-  <h1>Refresh Me</h1>
+  <h1>Start Game</h1>
+      <table>
+        <thead>
+            <tr>
+                <th style="color: red;" rowspan="1" colspan="2">Points Table</th>
+            </tr>
+            <tr>
+                <th style="color: aquamarine;" rowspan="2">Player-1</th>
+                <th style="color: aquamarine;" rowspan="2">Player-2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
   <div class="myContainer">
     <div class="dice">
       <p>Player 1</p>
@@ -18,12 +55,13 @@
 
     <div class="dice">
       <p>Player 2</p>
-      <img class="img2" src="./images/dice2.png" />
+      <img class="img2" src="./images/dice1.png" />
     </div>
   </div>
   <button id="mybutton">Start</button>
   <p id="notify"> Click to Start.</p>
-  <footer>🎲Created By Maqsud 🎲</footer>
+
+  <footer>🎲 Created By Maqsud 🎲</footer>
 
 
 
@@ -33,6 +71,8 @@
     button.addEventListener("click", myFunction);
 
     function myFunction() {
+      document.getElementsByClassName("img1")[0].setAttribute("src", "./images/dice.gif");
+      document.getElementsByClassName("img2")[0].setAttribute("src", "./images/dice.gif");
       var player1 = Math.floor(Math.random() * 6) + 1;
       var player2 = Math.floor(Math.random() * 6) + 1;
       if (player1 === 1) {
@@ -73,17 +113,17 @@
       }
       {
         if (player1 > player2) {
-          document.getElementsByTagName("h1")[0].innerHTML = "player 1 wins";
+          document.getElementsByTagName("h1")[0].innerHTML = "&#x1F3C6; player 1 wins!";
         }
         else if (player1 === player2) {
-          document.getElementsByTagName("h1")[0].innerHTML = "Draw";
+          document.getElementsByTagName("h1")[0].innerHTML = "Draw &#x1F38C;";
         }
         else {
-          document.getElementsByTagName("h1")[0].innerHTML = "player 2 wins";
+          document.getElementsByTagName("h1")[0].innerHTML = "player 2 wins! &#x1F3C6;";
         }
       }
       document.getElementById("mybutton").innerHTML = "Refresh";
-      document.getElementById("notify").innerHTML = "Clicked..";
+      document.getElementById("notify").innerHTML = "Click to Refresh";
       console.log(player1, player2);
     }
   </script>
